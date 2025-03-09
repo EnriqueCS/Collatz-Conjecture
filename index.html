@@ -29,7 +29,7 @@
     <p>
         The conjecture states that for all \( n \in \mathbb{Z}^+ \), there exists some \( k \in \mathbb{Z}^+ \) such that:
         \[
-        f^k(n) = 1
+        f^K(n) = 1
         \]
     </p>
 
@@ -127,7 +127,7 @@ n \xrightarrow{\twoheadrightarrow} \frac{n}{2} \quad \text{if } n \text{ is even
 
 <p>Furthermore, \( \Rrightarrow_k \) denotes the general action applied \( k \) times, where \( k \) is a positive integer. It can represent either \( \rightarrowtail \) or \( \twoheadrightarrow \), depending on the parity of the value in question.</p>
 
-<p>To establish the existence of a positive integer \( k \) such that \( f^k(n) = 1 \), it is necessary to demonstrate a "path" from the initial value \( n \) to 1. This path is formed by successive applications of \( \Rrightarrow \) within each of the six sets that partition \( \mathbb{Z}^+ \).</p>
+<p>To establish the existence of a positive integer \( k \) such that \( f^K(n) = 1 \), it is necessary to demonstrate a "path" from the initial value \( n \) to 1. This path is formed by successive applications of \( \Rrightarrow \) within each of the six sets that partition \( \mathbb{Z}^+ \).</p>
 
 <h2>Proving \( E_0 \twoheadrightarrow_k O_0 \)</h2>
 <p>Let \( n \in E_0 \subseteq A_0 \), so \( n \) is even. By the properties of \( E_0 \), we know that \( n = 2k_1 \) and \( n = 3k_2 \) for some \( k_1, k_2 \in \mathbb{Z}^+ \). By the definition of the operation \( \twoheadrightarrow \), we have:</p>
@@ -174,6 +174,89 @@ n \rightarrowtail 3n + 1 = 3(2k_1 + 1) + 1 = 6k_1 + 4
 </ul>
 
 <p>Thus, \( A_0 \rightarrow E_1 \) is demonstrated, completing the proof.</p>
+
+<h3>Power of 2 Table</h3>
+<table border="1">
+    <tr>
+        <th>Power of 2</th>
+        <th>Expression</th>
+        <th>Number</th>
+        <th>Exponent</th>
+        <th>Even/Odd</th>
+        <th>Set</th>
+    </tr>
+    <tr>
+        <td>\( 2^4 \)</td>
+        <td>\( 5 \times 3 + 1 \)</td>
+        <td>16</td>
+        <td>4</td>
+        <td>E</td>
+        <td>\( A_1 \)</td>
+    </tr>
+    <tr>
+        <td>\( 2^5 \)</td>
+        <td>\( 3 \times 10 + 2 \)</td>
+        <td>32</td>
+        <td>5</td>
+        <td>O</td>
+        <td>\( A_2 \)</td>
+    </tr>
+    <tr>
+        <td>\( 2^6 \)</td>
+        <td>\( 3 \times 21 + 1 \)</td>
+        <td>64</td>
+        <td>6</td>
+        <td>E</td>
+        <td>\( A_1 \)</td>
+    </tr>
+    <tr>
+        <td>\( 2^7 \)</td>
+        <td>\( 3 \times 42 + 2 \)</td>
+        <td>128</td>
+        <td>7</td>
+        <td>O</td>
+        <td>\( A_2 \)</td>
+    </tr>
+    <tr>
+        <td>\( 2^8 \)</td>
+        <td>\( 3 \times 85 + 1 \)</td>
+        <td>256</td>
+        <td>8</td>
+        <td>E</td>
+        <td>\( A_1 \)</td>
+    </tr>
+</table>
+
+<p>Generalized rule for powers of 2 in terms of \( k_3 \):</p>
+<ul>
+    <li>For even powers of 2 (\( 2^{2k_3} \)), the expression is of the form \( 3k_2 + 1 \in A_1 \).</li>
+    <li>For odd powers of 2 (\( 2^{2k_3+1} \)), the expression is of the form \( 3k_2 + 2 \in A_2 \).</li>
+</ul>
+
+<p>Since in the Collatz conjecture we eventually reach \( f^K(x) = 1 \), we can work our way backwards using the \( \twoheadrightarrow \) operation. Consequently, any number that is a power of 2 will ultimately lead to 1 because of the effect of the \( \twoheadrightarrow \) operation.</p>
+<p>Because of the previous statement, we can create \( S_1 \), which is for even powers of 2 (\( 2^{2k_3} \)), and is a strict subset of \( E_1 \subset A_1 \). Similarly, we define \( S_2 \), which has the same relationship but with odd powers of 2, and the union of \( S_1 \cup S_2 \) produces \( S \), the 'end set.' Therefore, two sequences of actions (denoted by \( \Rrightarrow_k \)) can be made:</p>
+
+<p>
+  \[
+  \left\{
+    \begin{array}{l}
+      E \twoheadrightarrow_{k_1} \Rrightarrow_{k_2} S \twoheadrightarrow_{k_m} 1 \\
+    \end{array}
+  \right.
+  \quad \text{(first sequence starting with \( x \in E \))}
+  \]
+
+  \[
+  \left\{
+    \begin{array}{l}
+      O \rightarrowtail_{k_1} \Rrightarrow_{k_2} S \twoheadrightarrow_{k_m} 1 \\
+    \end{array}
+  \right.
+  \quad \text{(second sequence starting with \( O \))}
+  \]
+</p>
+
+<p>Since we previously established that \( A_0 \Rrightarrow_k A_1 \), we now only need to work with the four sets \( E_1 \), \( E_2 \), \( O_1 \), and \( O_2 \) (or equivalently \( A_1 \) and \( A_2 \)) to cover all \( \mathbb{Z}^+ \).</p>
 
 
 </body>
