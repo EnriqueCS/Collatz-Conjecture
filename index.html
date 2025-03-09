@@ -8,11 +8,173 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-    <h2>LaTeX Example</h2>
-    <p>Here is an inline equation: \( E = mc^2 \)</p>
-    <p>Here is a block equation:</p>
-    <div>
-        $$ \sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6} $$
-    </div>
+    <h2>Purpose</h2>
+    <p>
+        I'm doing this mostly out of boredom. The Collatz Conjecture is an interesting problem, and while some of the equations I write might be incorrect, I think it's fun to explore it. There’s no real goal here—just a curiosity-driven exercise.
+        Another reason I'm writing this is to have a digital backup. I usually jot down notes in a physical notebook, but in case I lose it, I want to transfer my work into LaTeX and publish it using GitHub Pages. This way, I can always refer back to my notes without worrying about losing them.
+        To keep things simple, I’m just using a single <code>index.html</code> file with MathJax for rendering LaTeX. No fancy frameworks, no complex setups—just a basic HTML page that serves my purpose.
+        If you're reading this, you're probably as bored as I am. - Jose Alvarez
+    </p>
+    <h2>Collatz Conjecture</h2>
+    <p>
+      The Collatz function is defined as:
+      \[
+      f(n) =
+      \begin{cases} 
+      \frac{n}{2}, & \text{if } n \text{ is even} \\
+      3n + 1, & \text{if } n \text{ is odd}
+      \end{cases}
+      \]
+    </p>
+    <p>
+        The conjecture states that for all \( n \in \mathbb{Z}^+ \), there exists some \( k \in \mathbb{Z}^+ \) such that:
+        \[
+        f^k(n) = 1
+        \]
+    </p>
+
+    <h2>03/09/2025 - Partitioning \( \mathbb{Z}^+ \)</h2>
+    <p>Let us define \( A_0, A_1, A_2 \) for each of these sets in set-builder notation, where \( k \) is a positive integer. We can divide \( \mathbb{Z}^+ \) into three disjoint sets:</p>
+
+<p>
+\[
+A_0 = \{ x \in \mathbb{Z}^+ \mid x = 3k, \, k \in \mathbb{Z}^+ \}
+\]
+\[
+A_1 = \{ x \in \mathbb{Z}^+ \mid x = 3k+1, \, k \in \mathbb{Z}^+ \}
+\]
+\[
+A_2 = \{ x \in \mathbb{Z}^+ \mid x = 3k+2, \, k \in \mathbb{Z}^+ \}
+\]
+</p>
+
+<p>Each integer belongs to exactly one of these sets, forming a complete partition of \( \mathbb{Z}^+ \).</p>
+
+<p>Let us now introduce \( E_0 \) and \( O_0 \), where both sets union together to form \( A_0 \), representing the even and odd integers of \( A_0 \), respectively. These sets do not share any elements. Similarly, such sets exist for \( A_1 \) and \( A_2 \), and they are subsets of \( E^+ \) (all even numbers in \( \mathbb{Z}^+ \)) and \( O^+ \) (all odd numbers in \( \mathbb{Z}^+ \)), respectively. The relationships between these sets can be shown in set notation as follows:</p>
+
+<p>
+\[
+A_0 = E_0 \cup O_0, \quad E_0 \cap O_0 = \emptyset
+\]
+\[
+A_1 = E_1 \cup O_1, \quad E_1 \cap O_1 = \emptyset
+\]
+\[
+A_2 = E_2 \cup O_2, \quad E_2 \cap O_2 = \emptyset
+\]
+
+<p>It follows that the union of \( E_0, E_1, E_2 \) and \( O_0, O_1, O_2 \) makes up \( \mathbb{Z}^+ \), as shown below:</p>
+
+<p>
+\[
+\left( E_0 \cup E_1 \cup E_2 \right) \cup \left( O_0 \cup O_1 \cup O_2 \right) = \mathbb{Z}^+
+\]
+</p>
+
+<p>Now, for these six sets \( E_0, E_1, E_2, O_0, O_1, O_2 \), we will show the properties of each element \( x \) using \( k_1 \) to show the parity equation and \( k_2 \) to show the \( 3k + z \) property. The relationships are as follows:</p>
+
+<div style="text-align: center;">
+  <table style="display: inline-block; margin-right: 20px;">
+    <tr>
+      <th>Set \( E_n \)</th>
+      <th>Properties of \( x \)</th>
+    </tr>
+    <tr>
+      <td> \( E_0 \) </td>
+      <td> \( x = 2k_1 \ \land \ x = 3k_2 \) </td>
+    </tr>
+    <tr>
+      <td> \( E_1 \) </td>
+      <td> \( x = 2k_1 \ \land \ x = 3k_2 + 1 \) </td>
+    </tr>
+    <tr>
+      <td> \( E_2 \) </td>
+      <td> \( x = 2k_1 \ \land \ x = 3k_2 + 2 \) </td>
+    </tr>
+  </table>
+
+  <table style="display: inline-block;">
+    <tr>
+      <th>Set \( O_n \)</th>
+      <th>Properties of \( x \)</th>
+    </tr>
+    <tr>
+      <td> \( O_0 \) </td>
+      <td> \( x = 2k_1 + 1 \ \land \ x = 3k_2 \) </td>
+    </tr>
+    <tr>
+      <td> \( O_1 \) </td>
+      <td> \( x = 2k_1 + 1 \ \land \ x = 3k_2 + 1 \) </td>
+    </tr>
+    <tr>
+      <td> \( O_2 \) </td>
+      <td> \( x = 2k_1 + 1 \ \land \ x = 3k_2 + 2 \) </td>
+    </tr>
+  </table>
+</div>
+
+<h2>Finding 'Paths'</h2>
+<p>Let us define the following operations for any \( n \in \mathbb{Z}^+ \):</p>
+
+<p>
+\[
+n \xrightarrow{\rightarrowtail} 3n + 1 \quad \text{if } n \text{ is odd}
+\]
+\[
+n \xrightarrow{\twoheadrightarrow} \frac{n}{2} \quad \text{if } n \text{ is even}
+\]
+</p>
+
+<p>Furthermore, \( \Rrightarrow_k \) denotes the general action applied \( k \) times, where \( k \) is a positive integer. It can represent either \( \rightarrowtail \) or \( \twoheadrightarrow \), depending on the parity of the value in question.</p>
+
+<p>To establish the existence of a positive integer \( k \) such that \( f^k(n) = 1 \), it is necessary to demonstrate a "path" from the initial value \( n \) to 1. This path is formed by successive applications of \( \Rrightarrow \) within each of the six sets that partition \( \mathbb{Z}^+ \).</p>
+
+<h2>Proving \( E_0 \twoheadrightarrow_k O_0 \)</h2>
+<p>Let \( n \in E_0 \subseteq A_0 \), so \( n \) is even. By the properties of \( E_0 \), we know that \( n = 2k_1 \) and \( n = 3k_2 \) for some \( k_1, k_2 \in \mathbb{Z}^+ \). By the definition of the operation \( \twoheadrightarrow \), we have:</p>
+
+<p>
+\[
+n \twoheadrightarrow \frac{n}{2} \quad \text{(since \( n \) is even)}
+\]
+</p>
+
+<p>We continue applying \( \twoheadrightarrow_k \) iteratively to reduce \( n \) within \( A_0 \), preserving the form \( n = 2k_1 \), until we reach an odd value \( m \). For \( m \), the property \( m = 2k_1 + 1 \) holds, and we know that \( m = 3k_2 \) for some \( k_2 \in \mathbb{Z}^+ \), which satisfies the properties of \( O_0 \). Thus, \( n \Rrightarrow_k m \) for some \( k \) such that \( m \in O_0 \). Therefore, \( E_0 \Rrightarrow_k O_0 \) within \( A_0 \), completing the proof.</p>
+
+<h2>Proving \( O_0 \rightarrowtail_1 E_1 \)</h2>
+<p>Let \( n \in O_0 \subseteq A_0 \), so \( n \) is odd. By the properties of \( O_0 \), we know that \( n = 2k_1 + 1 \) and \( n = 3k_2 \) for some \( k_1, k_2 \in \mathbb{Z}^+ \). By the definition of the operation \( \rightarrowtail \), we have:</p>
+
+<p>
+\[
+n \rightarrowtail 3n + 1 \quad \text{(since \( n \) is odd)}
+\]
+</p>
+
+<p>Applying \( \rightarrowtail \) to \( n \) once, we get:</p>
+
+<p>
+\[
+n \rightarrowtail 3n + 1 = 3(2k_1 + 1) + 1 = 6k_1 + 4
+\]
+</p>
+
+<p>We observe that \( 6k_1 + 4 \) is even, and thus belongs to \( E_1 \), which is the set of even numbers of the form \( x = 2k_1 \land x = 3k_2 + 1 \). Therefore, \( n \rightarrowtail_1 E_1 \) and we conclude that \( O_0 \rightarrowtail_1 E_1 \), completing the proof.</p>
+
+<h2>Proving \( A_0 \Rrightarrow_k A_1 \) or specifically \( A_0 \Rrightarrow_k E_1 \)</h2>
+<p>From the previous results, we have shown the following:</p>
+<ul>
+  <li> \( E_0 \twoheadrightarrow_k O_0 \), meaning that starting from an element in \( E_0 \), we can reach an element in \( O_0 \) through a series of operations.</li>
+  <li> \( O_0 \rightarrowtail_1 E_1 \), meaning that starting from an element in \( O_0 \), applying the \( \rightarrowtail \) operation once leads to an element in \( E_1 \).</li>
+</ul>
+
+<p>Therefore, combining these two results, we can conclude that an element from \( A_0 \) can be transformed into an element of \( E_1 \) as follows:</p>
+
+<ul>
+  <li> Start with \( n \in E_0 \subseteq A_0 \), apply the \( \twoheadrightarrow_k \) operation, and we reach an element \( m \in O_0 \).</li>
+  <li> From \( m \in O_0 \), applying the \( \rightarrowtail_1 \) operation leads to an element in \( E_1 \).</li>
+</ul>
+
+<p>Thus, \( A_0 \rightarrow E_1 \) is demonstrated, completing the proof.</p>
+
+
 </body>
 </html>
