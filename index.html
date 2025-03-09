@@ -256,6 +256,53 @@ n \rightarrowtail 3n + 1 = 3(2k_1 + 1) + 1 = 6k_1 + 4
   \]
 </p>
 
+<p>The \( \twoheadrightarrow \) action is stackable, meaning that an even number divided by 2 can lead to another even number. Specifically:</p>
+
+<p>
+  \[
+  \twoheadrightarrow_2 \twoheadrightarrow_2 = \twoheadrightarrow_4
+  \]
+  \[
+  \twoheadrightarrow_m \twoheadrightarrow_n = \twoheadrightarrow_{m+n}
+  \]
+</p>
+
+<p>It’s important to note that \( \twoheadrightarrow \) followed by \( \twoheadrightarrow \) is not multiplication; instead, it is equivalent to function composition, meaning:</p>
+
+<p>
+  \[
+  f \circ g(x) = f(g(x))
+  \]
+</p>
+
+<p>Another thing to note is that since we defined \( \twoheadrightarrow_k \), it means that this action applies \( k \) times. However, it does not specify whether the remaining value is even or odd. On the other hand, \( \twoheadrightarrow^{(O)}_k \) states that the operation was applied \( k \) times, where the final result is odd. This can be expressed as:</p>
+
+<p>
+  \[
+  \twoheadrightarrow_k \quad \text{(applies \( k \) times without specifying even or odd)}
+  \]
+</p>
+
+<p>
+  \[
+  \twoheadrightarrow^{(O)}_k \quad \text{(applies \( k \) times with the final result being odd)}
+  \]
+</p>
+
+<p>For the \( \rightarrowtail \) operation, which applies to odd numbers, we have:</p>
+
+<p>
+  Let \( x = 2k_1 + 1 \), where \( k_1 \) is an integer. Applying \( \rightarrowtail(x) = 3x + 1 \) gives:</p>
+
+<p>
+  \[
+  \rightarrowtail(x) = 3(2k_1 + 1) + 1 = 6k_1 + 4 = 2(3k_1 + 2).
+  \]
+</p>
+
+<p>Since \( 2(3k_1 + 2) \) is clearly even, the result of \( \rightarrowtail \) is always even. Therefore, the operation cannot be stacked because it is only defined for odd numbers.</p>
+
+
 <p>Since we previously established that \( A_0 \Rrightarrow_k A_1 \), we now only need to work with the four sets \( E_1 \), \( E_2 \), \( O_1 \), and \( O_2 \) (or equivalently \( A_1 \) and \( A_2 \)) to cover all \( \mathbb{Z}^+ \).</p>
 
 
