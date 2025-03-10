@@ -418,9 +418,59 @@ O \rightarrowtail_{k_1} E' (\twoheadrightarrow \rightarrowtail )_L S^{(2L + 1)} 
   </ul>
 </p>
 
+<p>
+  Since we previously established that \( A_0 \Rrightarrow_k A_1 \), we now only need to work with the four sets \( E_1 \), \( E_2 \), \( O_1 \), and \( O_2 \) (or equivalently \( A_1 \) and \( A_2 \)) to cover all \( \mathbb{Z}^+ \).
+</p>
 
-<p>Since we previously established that \( A_0 \Rrightarrow_k A_1 \), we now only need to work with the four sets \( E_1 \), \( E_2 \), \( O_1 \), and \( O_2 \) (or equivalently \( A_1 \) and \( A_2 \)) to cover all \( \mathbb{Z}^+ \).</p>
+<p>
+  Moreover, because \( 3(O_2) + 1 \) falls in \( A_1 \), and since \( O_2 \in \mathbb{Z}^+ \), it specifically falls within \( E_1 \) due to the \( \rightarrowtail \) operation. Thus, we further reduce our sets.
+</p>
 
+<p>
+  To show that \( O_1 \) falls inside \( E_1 \) due to the \( \rightarrowtail \) operation, consider that for any odd number \( x \in O_1 \), the operation \( \rightarrowtail \) is defined as \( 3x + 1 \). This operation always results in an even number, which must therefore belong to \( E_1 \) since \( E_1 \) contains even numbers. Hence, for any \( x \in O_1 \), \( \rightarrowtail(x) \in E_1 \), proving that \( O_1 \) is mapped into \( E_1 \) under the \( \rightarrowtail \) operation.
+</p>
+
+\[
+(\twoheadrightarrow^{(O)} \rightarrowtail )_{L} \twoheadrightarrow^{(O)}_{L + N} 1
+\]
+
+<p>
+  Now, we are primarily concerned with the even sets \( E_1 \) and \( E_2 \). Since \( S \) represents the end set and has already been solved, we now focus on the elements within \( E_1 \) and \( E_2 \) that contain one additional prime factor beyond 2.
+</p>
+
+<p>
+  Consider \( E_2 \). If an element is already in the \( S \) set, we don't need to worry about it, as it has already been solved. Otherwise, there remains only one path to follow whenever the sequence \( (\twoheadrightarrow^{(O)} \rightarrowtail )_L \) exists. Since the last operation in this sequence is \( \rightarrowtail \), it is guaranteed to result in an element from \( A_1 \), and since it is even result, it falls under \( E_1 \). This allows us to reduce the problem to just the subset of \( E_1 \).
+</p>
+
+<p>
+  We can now represent the sequence as:
+  \[
+  \left( \twoheadrightarrow^{(O)} \rightarrowtail \right)_{L} \twoheadrightarrow^{(O)}_{L + N} 1
+  \]
+  The use of brackets indicates that the sequence is guaranteed to occur at least once, as the alternative is that the element already belongs to the end set \( S \).
+</p>
+
+<p>
+  Using the fact that the sequence is a result of \( \rightarrowtail \) in the 
+  \[
+    \left( \twoheadrightarrow^{(O)} \rightarrowtail \right)_{L},
+  \]
+  we can conclude that the result is in \( A_1 \). 
+  Moreover, based on the previous statement:
+</p>
+<ul>
+  <li>For even powers of 2 (\( 2^{2k_3} \)), the expression is of the form \( 3k_2 + 1 \in A_1 \).</li>
+</ul>
+<p>
+  Thus, we have 
+  \[
+    \left( \twoheadrightarrow^{(O)} \rightarrowtail \right)_{L} = 2^{(N = 2n)} = 4^n.
+  \]
+</p>
+
+<p>
+  For the following operation, it is closed, meaning that it sends \( E_1 \) into \( E_1 \) indefinitely. The question arises: how can we be sure that a loop doesn't exist, preventing the sequence from eventually reaching the form \( 4^n \)?
+</p>
 
 </body>
 </html>
