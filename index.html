@@ -302,6 +302,122 @@ n \rightarrowtail 3n + 1 = 3(2k_1 + 1) + 1 = 6k_1 + 4
 
 <p>Since \( 2(3k_1 + 2) \) is clearly even, the result of \( \rightarrowtail \) is always even. Therefore, the operation cannot be stacked because it is only defined for odd numbers.</p>
 
+<p>
+  \[
+  \left\{
+    \begin{array}{l}
+      E \twoheadrightarrow_{k_1} \Rrightarrow_{k_2} S \twoheadrightarrow_{k_m} 1 \\  
+    \end{array}
+  \right.
+  \quad \text{(first sequence starting with \( x \in E \))}
+  \]
+
+  \[
+  \left\{
+    \begin{array}{l}
+      O \rightarrowtail_{k_1} E' \twoheadrightarrow_{k_2} \Rrightarrow_{k_3} S \twoheadrightarrow_{k_m} 1 \\  
+    \end{array}
+  \right.
+  \quad \text{(second sequence expanded, where \( E' \) is the even result of \( \rightarrowtail \))}
+  \]
+</p>
+
+<p>
+Since the first case is a subsequence of the second case, we can generalize the analysis by focusing on the second case. Both sequences share the same structure after reaching \( E' \), meaning we only need to study the general form:
+</p>
+
+\[
+O \rightarrowtail_{k_1} E' \twoheadrightarrow_{k_2} \Rrightarrow_{k_3} S \twoheadrightarrow_{k_m} 1
+\]
+
+<p>
+By doing so, we encompass all cases while maintaining the same transformation rules.
+</p>
+
+<p>
+  Now, let us refine \( \twoheadrightarrow_k \) by introducing \( \twoheadrightarrow_k^{(O)} \), which explicitly denotes that the final outcome is odd. This adjustment makes the transition structure more explicit and systematic:
+  </p>
+  
+  \[
+  O \rightarrowtail_{k_1} E' \twoheadrightarrow_{k_2}^{(O)} \Rrightarrow_{k_3} S \twoheadrightarrow_{k_m}^{(O)} 1
+\]
+
+\[
+  O \rightarrowtail_{k_1} E' \twoheadrightarrow_{k_2}^{(O)} O' \Rrightarrow_{k_3} S \twoheadrightarrow_{k_m}^{(O)} 1
+\]
+
+\[
+  O \rightarrowtail_{k_1} E' \twoheadrightarrow_{k_2}^{(O)} O' \Rrightarrow_{k_3} S^{(m-1)} \twoheadrightarrow_{k_m}^{(O)} 1
+\]
+
+<p>  
+Since \( O' \Rrightarrow_{k_3} S^{(m-1)} \) maps odd numbers to even numbers, the \( \rightarrowtail \) operation alone achieves this. However, another valid transformation sequence is:  
+</p>  
+
+\[
+\rightarrowtail \twoheadrightarrow^{(O)} \rightarrowtail \twoheadrightarrow^{(O)} \rightarrowtail \dots \rightarrowtail (\twoheadrightarrow \rightarrowtail )_L
+\]  
+
+<p>  
+This notation captures alternating applications of \( \rightarrowtail \) and \( \twoheadrightarrow^{(O)} \), maintaining the transition from odd to even until reaching \( S^{(m-1)} \).  
+</p>
+
+<p>Note: \( L \) can be \( 0 \).</p>
+
+\[
+O \rightarrowtail_{k_1} E' \twoheadrightarrow_{k_2}^{(O)} O' \rightarrowtail_{k_3} (\twoheadrightarrow \rightarrowtail )_L S^{(3 + 2L)} \twoheadrightarrow_{k_m}^{(O)} 1
+\]
+
+<p>We can further reduce the sequence \( E' \twoheadrightarrow_{k_2}^{(O)} O' \rightarrowtail_{k_3} \) by incorporating it into the \( L \)-term. For example, considering that: </p>
+
+<p>
+  \[
+  21 = 3 \times 7
+  \]
+  and
+  \[
+  21 = 2k + 1,
+  \]
+  we conclude that it falls under \( O_0 \). Furthermore, since:
+</p>
+
+<p>
+  \[
+  21 \times 3 + 1 = 64 \quad \text{and} \quad 64 = 2^6,
+  \]
+  we see that only the combination of \( \rightarrowtail_{} \twoheadrightarrow_{k_2}^{(O)} \) was necessary to reach \( 1 \). Thus, we can lump the \( k_2 \) and \( k_3 \) actions into the set \( S \), resulting in:
+</p>
+
+\[
+O \rightarrowtail_{k_1} E' (\twoheadrightarrow \rightarrowtail )_L S^{(2L + 1)} \twoheadrightarrow_{k_m}^{(O)} 1
+\]
+
+\[
+(\rightarrowtail)_O (\twoheadrightarrow^{(O)} \rightarrowtail )_{L + O} \twoheadrightarrow^{(O)}_{L + O + N} 1
+\]
+
+<p>Remember that for \( (\twoheadrightarrow^{(O)} \rightarrowtail)_{L + O} \), each \( \twoheadrightarrow^{(O)} \) is associated with \( n_1, n_2, \dots, n_l \) because these represent the steps required to become odd. Therefore, \( L \) should be the sum of the following:</p>
+
+<p>
+  \[
+  L = \sum_{i=1}^{l} (n_i + 1)
+  \]
+  where each \( (n_i + 1) \) represents the number of steps needed to transition from odd to even in the sequence, followed by a \( \rightarrowtail \) step.
+</p>
+
+<p>
+  Thus, we define \( K \) as follows:
+  \[
+  K = L + O + N
+  \]
+  where:
+  <ul>
+    <li> \( L \) is the sum of the steps required to transition from odd to even,</li>
+    <li> \( O \) is 1 if the process started with an odd number and 0 otherwise,</li>
+    <li> \( N \) represents the number of steps taken to reach \( 2^N \) (the power of 2 stage).</li>
+  </ul>
+</p>
+
 
 <p>Since we previously established that \( A_0 \Rrightarrow_k A_1 \), we now only need to work with the four sets \( E_1 \), \( E_2 \), \( O_1 \), and \( O_2 \) (or equivalently \( A_1 \) and \( A_2 \)) to cover all \( \mathbb{Z}^+ \).</p>
 
