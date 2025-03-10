@@ -468,9 +468,42 @@ O \rightarrowtail_{k_1} E' (\twoheadrightarrow \rightarrowtail )_L S^{(2L + 1)} 
   \]
 </p>
 
-<p>
-  For the following operation, it is closed, meaning that it sends \( E_1 \) into \( E_1 \) indefinitely. The question arises: how can we be sure that a loop doesn't exist, preventing the sequence from eventually reaching the form \( 4^n \)?
-</p>
+<p> For the following operation, it is closed, meaning that it sends \( E_1 \) into \( E_1 \) indefinitely. </p>
+
+<p>We partition \( E_1 \) into three subsets satisfying:</p>
+<ul>
+<li> \( 2k_1 \) (even numbers)</li>
+<li> \( 3k_2 + 1 \) (\(\equiv 1 \mod 3\))</li>
+</ul>
+
+<p>Given \( x \in \{4, 10, 16\} \), we check:</p>
+<ul>
+<li> \( x \equiv 1 \mod 3 \) </li>
+<li> \( x \equiv 0 \mod 2 \) </li>
+</ul>
+
+<p>Thus, the valid partition:</p>
+
+\[
+E_1^{(1)} = \{18J + 4\}, \quad
+E_1^{(2)} = \{18J + 10\}, \quad
+E_1^{(3)} = \{18J + 16\}
+\]
+
+<p>For \( n = 18J + x \) where \( x \in \{4, 10, 16\} \):</p>
+
+<ul>
+    <li>\( 18J + 4 \twoheadrightarrow^{(O)} 9J + 2 \twoheadrightarrow^{(O)} 9J + 1 \) (odd)</li>
+    <li>\( 18J + 10 \twoheadrightarrow^{(O)} 9J + 5 \) (odd)</li>
+    <li>\( 18J + 16 \twoheadrightarrow^{(O)} 9J + 8 \twoheadrightarrow^{(O)} 9J + 4 \twoheadrightarrow^{(O)} 9J + 2 \twoheadrightarrow^{(O)} 9J + 1 \) (odd)</li>
+</ul>
+
+<p>Thus, under \( \twoheadrightarrow^{(O)} \), all elements eventually reach:</p>
+
+\[
+\{9J + 1, 9J + 5\}
+\]
+
 
 </body>
 </html>
