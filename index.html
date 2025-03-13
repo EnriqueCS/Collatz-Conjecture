@@ -13,65 +13,51 @@
         I'm doing this mostly out of boredom. The Collatz Conjecture is an interesting problem, and while some of the equations I write might be incorrect, I think it's fun to explore it. There’s no real goal here—just a curiosity-driven exercise.
         Another reason I'm writing this is to have a digital backup. I usually jot down notes in a physical notebook, but in case I lose it, I want to transfer my work into LaTeX and publish it using GitHub Pages. This way, I can always refer back to my notes without worrying about losing them.
         To keep things simple, I’m just using a single <code>index.html</code> file with MathJax for rendering LaTeX. No fancy frameworks, no complex setups—just a basic HTML page that serves my purpose.
-        If you're reading this, you're probably as bored as I am. - Jose Alvarez
-    </p>
-    <h2>Collatz Conjecture</h2>
-    <p>
-      The Collatz function is defined as:
-      \[
-      f(n) =
-      \begin{cases} 
-      \frac{n}{2}, & \text{if } n \text{ is even} \\
-      3n + 1, & \text{if } n \text{ is odd}
-      \end{cases}
-      \]
-    </p>
-    <p>
-        The conjecture states that for all \( n \in \mathbb{Z}^+ \), there exists some \( k \in \mathbb{Z}^+ \) such that:
-        \[
-        f^K(n) = 1
-        \]
+        If you're reading this, you're probably as bored as I am. - Jose Alvarez &nbsp;&nbsp;&nbsp;&nbsp; (Last Updated: 03/13/2025)
     </p>
 
-    <h2>03/09/2025 - Partitioning \( \mathbb{Z}^+ \)</h2>
-    <p>Let us define \( A_0, A_1, A_2 \) for each of these sets in set-builder notation, where \( k \) is a positive integer. We can divide \( \mathbb{Z}^+ \) into three disjoint sets:</p>
+    <h2>Collatz Conjecture</h2>
 
 <p>
-\[
-A_0 = \{ x \in \mathbb{Z}^+ \mid x = 3k, \, k \in \mathbb{Z}^+ \}
-\]
-\[
-A_1 = \{ x \in \mathbb{Z}^+ \mid x = 3k+1, \, k \in \mathbb{Z}^+ \}
-\]
-\[
-A_2 = \{ x \in \mathbb{Z}^+ \mid x = 3k+2, \, k \in \mathbb{Z}^+ \}
-\]
+    For all \( n \in \mathbb{Z}^+ \), \( \exists K \in \mathbb{Z}^+ \) such that \( f^K(n) = 1 \). Where:
 </p>
 
-<p>Each integer belongs to exactly one of these sets, forming a complete partition of \( \mathbb{Z}^+ \).</p>
+\[
+f(n) =
+\begin{cases} 
+\frac{n}{2}, & n \text{ even} \\
+3n + 1, & n \text{ odd}
+\end{cases}
+\]
 
-<p>Let us now introduce \( E_0 \) and \( O_0 \), where both sets union together to form \( A_0 \), representing the even and odd integers of \( A_0 \), respectively. These sets do not share any elements. Similarly, such sets exist for \( A_1 \) and \( A_2 \), and they are subsets of \( E^+ \) (all even numbers in \( \mathbb{Z}^+ \)) and \( O^+ \) (all odd numbers in \( \mathbb{Z}^+ \)), respectively. The relationships between these sets can be shown in set notation as follows:</p>
+<h2>Partitioning \( \mathbb{Z}^+ \)</h2>
+<p>
+  Let \( i \in \{ 0, 1, 2 \} \). This is the beginning of our attempt to solve the conjecture by partitioning \( \mathbb{Z}^+ \) into three disjoint sets:
+</p>
+
+\[
+\mathbb{Z}^+ = A_0 \sqcup A_1 \sqcup A_2
+\]
+
+\[
+A_i = \{ x \in \mathbb{Z}^+ \mid x \equiv i \, (\text{mod} \, 3) \}
+\]
 
 <p>
+  Introducing \( E, O \) such that \( A_i = E_i \cup O_i \) with \( E_i \cap O_i = \emptyset \), we define:
+</p>
+
 \[
-A_0 = E_0 \cup O_0, \quad E_0 \cap O_0 = \emptyset
-\]
-\[
-A_1 = E_1 \cup O_1, \quad E_1 \cap O_1 = \emptyset
-\]
-\[
-A_2 = E_2 \cup O_2, \quad E_2 \cap O_2 = \emptyset
+E_i = \{ x \in A_i \mid x \text{ is even} \}, \quad O_i = \{ x \in A_i \mid x \text{ is odd} \}
 \]
 
-<p>It follows that the union of \( E_0, E_1, E_2 \) and \( O_0, O_1, O_2 \) makes up \( \mathbb{Z}^+ \), as shown below:</p>
+\[
+A_i = E_i \cup O_i, \quad E_i \cap O_i = \emptyset
+\]
 
-<p>
 \[
 \left( E_0 \cup E_1 \cup E_2 \right) \cup \left( O_0 \cup O_1 \cup O_2 \right) = \mathbb{Z}^+
 \]
-</p>
-
-<p>Now, for these six sets \( E_0, E_1, E_2, O_0, O_1, O_2 \), we will show the properties of each element \( x \) using \( k_1 \) to show the parity equation and \( k_2 \) to show the \( 3k + z \) property. The relationships are as follows:</p>
 
 <div style="text-align: center;">
   <table style="display: inline-block; margin-right: 20px;">
