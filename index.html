@@ -99,21 +99,25 @@ A_i = E_i \cup O_i, \quad E_i \cap O_i = \emptyset
   </table>
 </div>
 
-<h2>Finding 'Paths'</h2>
-<p>Let us define the following operations for any \( n \in \mathbb{Z}^+ \):</p>
+<h2>Defining 'Actions'</h2>
+<p>For any \( n \in \mathbb{Z}^+ \), define the following operations:</p>
 
 <p>
 \[
-n \xrightarrow{\rightarrowtail} 3n + 1 \quad \text{if } n \text{ is odd}
-\]
-\[
-n \xrightarrow{\twoheadrightarrow} \frac{n}{2} \quad \text{if } n \text{ is even}
+n \xrightarrow{\rightarrowtail} 3n + 1 \quad \text{if } n \text{ is odd}, \quad n \xrightarrow{\twoheadrightarrow} \frac{n}{2} \quad \text{if } n \text{ is even}
 \]
 </p>
 
-<p>Furthermore, \( \Rrightarrow_k \) denotes the general action applied \( k \) times, where \( k \) is a positive integer. It can represent either \( \rightarrowtail \) or \( \twoheadrightarrow \), depending on the parity of the value in question.</p>
+<p>Let \( \Rrightarrow_K \) represent the action applied \( K \) times, where \( K \in \mathbb{Z}^+ \). It can be either \( \rightarrowtail \) or \( \twoheadrightarrow \), depending on whether \( n \) is odd or even:</p>
 
-<p>To establish the existence of a positive integer \( k \) such that \( f^K(n) = 1 \), it is necessary to demonstrate a "path" from the initial value \( n \) to 1. This path is formed by successive applications of \( \Rrightarrow \) within each of the six sets that partition \( \mathbb{Z}^+ \).</p>
+\[
+\Rrightarrow_K(n) = \begin{cases} 
+3n + 1 & \text{if } n \text{ is odd} \\
+\frac{n}{2} & \text{if } n \text{ is even}
+\end{cases}
+\]
+
+<p>To prove the existence of a positive integer \( K \) such that \( f^K(n) = 1 \), we must show a "path" from \( n \) to 1, formed by successive applications of \( \Rrightarrow \) within the six sets partitioning \( \mathbb{Z}^+ \).</p>
 
 <h2>Proving \( E_0 \twoheadrightarrow_k O_0 \)</h2>
 <p>Let \( n \in E_0 \subseteq A_0 \), so \( n \) is even. By the properties of \( E_0 \), we know that \( n = 2k_1 \) and \( n = 3k_2 \) for some \( k_1, k_2 \in \mathbb{Z}^+ \). By the definition of the operation \( \twoheadrightarrow \), we have:</p>
