@@ -8,12 +8,12 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-    <h2>Purpose</h2>
+    <h3>Purpose</h3>
     <p>
       I’m exploring the Collatz Conjecture out of curiosity and boredom. Some equations might be incorrect, but it’s a fun exercise. I’m also creating a digital backup of my notes, usually written in a physical notebook, by transferring them into LaTeX and publishing via GitHub Pages. This ensures I don’t lose my work. For simplicity, I’m using a single <code>index.html</code> file with MathJax—no frameworks, just basic HTML. If you’re reading this, you’re probably as bored as I am. — Jose Alvarez &nbsp;&nbsp;&nbsp;&nbsp; (Last Updated: 03/16/2025)
   </p>
 
-    <h2>Collatz Conjecture</h2>
+    <h3>Collatz Conjecture</h3>
 
   <p>
       \( \forall n \in \mathbb{Z}^+, \exists K \in \mathbb{Z}^+ : f^K(n) = 1 \), where:
@@ -29,7 +29,7 @@ f(n) =
 \end{cases}
 \]
 
-<h2>Partitioning \( \mathbb{Z}^+ \)</h2>
+<h3>Partitioning \( \mathbb{Z}^+ \)</h3>
 <p>
   Let \( i \in \{ 0, 1, 2 \} \).
 </p>
@@ -96,107 +96,103 @@ n \xrightarrow{\twoheadrightarrow} \frac{n}{2} \quad \text{if } n \text{ is even
 \]
 </p>
 
-<h2>Proving \( E_0 \twoheadrightarrow_k O_0 \)</h2>
+<h3>Proving \( E_0 \twoheadrightarrow_k O_0 \)</h3>
 <p>Let \( n \in E_0 \), so \( n = 2k_1 \land n = 3k_2 \); iterating \( \twoheadrightarrow \) yields odd \( m = 3k' \in O_0 \), thus \( E_0 \twoheadrightarrow_k O_0 \), \( \square \).</p>
 
-<h2>Proving \( O \rightarrowtail_1 E_1 \)</h2>
+<h3>Proving \( O \rightarrowtail_1 E_1 \)</h3>
 <p>Let \( n \in O \), so \( n = 2k_1 + 1 \); applying \( \rightarrowtail \) gives \( 3n + 1 = 6k_1 + 4 \in E_1 \), thus \( O \rightarrowtail_1 E_1 \), \( \square \).</p>
 
-<h2>Proving \( A_0 \Rrightarrow_k A_1 \) or specifically \( A_0 \Rrightarrow_k E_1 \)</h2>
+<h3>Proving \( A_0 \Rrightarrow_k A_1 \) or specifically \( A_0 \Rrightarrow_k E_1 \)</h3>
 <p>From \( E_0 \twoheadrightarrow_k O_0 \) and \( O_0 \rightarrowtail_1 E_1 \), starting from \( n \in E_0 \), we reach \( m \in O_0 \) via \( \twoheadrightarrow_k \), then \( m \rightarrowtail_1 E_1 \), thus \( A_0 \Rrightarrow_k E_1 \), \( \square \).</p>
-<h3>Power of 2 Table</h3>
-<table border="1">
-    <tr>
-        <th>Power of 2</th>
-        <th>Expression</th>
-        <th>Number</th>
-        <th>Exponent</th>
-        <th>Even/Odd</th>
-        <th>Set</th>
-    </tr>
-    <tr>
-        <td>\( 2^4 \)</td>
-        <td>\( 5 \times 3 + 1 \)</td>
-        <td>16</td>
-        <td>4</td>
-        <td>E</td>
-        <td>\( A_1 \)</td>
-    </tr>
-    <tr>
-        <td>\( 2^5 \)</td>
-        <td>\( 3 \times 10 + 2 \)</td>
-        <td>32</td>
-        <td>5</td>
-        <td>O</td>
-        <td>\( A_2 \)</td>
-    </tr>
-    <tr>
-        <td>\( 2^6 \)</td>
-        <td>\( 3 \times 21 + 1 \)</td>
-        <td>64</td>
-        <td>6</td>
-        <td>E</td>
-        <td>\( A_1 \)</td>
-    </tr>
-    <tr>
-        <td>\( 2^7 \)</td>
-        <td>\( 3 \times 42 + 2 \)</td>
-        <td>128</td>
-        <td>7</td>
-        <td>O</td>
-        <td>\( A_2 \)</td>
-    </tr>
-    <tr>
-        <td>\( 2^8 \)</td>
-        <td>\( 3 \times 85 + 1 \)</td>
-        <td>256</td>
-        <td>8</td>
-        <td>E</td>
-        <td>\( A_1 \)</td>
-    </tr>
-</table>
 
-<p>Generalized rule for powers of 2 in terms of \( k_3 \):</p>
-<ul>
-    <li>For even powers of 2 (\( 2^{2k_3} \)), the expression is of the form \( 3k_2 + 1 \in A_1 \).</li>
-    <li>For odd powers of 2 (\( 2^{2k_3+1} \)), the expression is of the form \( 3k_2 + 2 \in A_2 \).</li>
-</ul>
+<h3>Proving \( E_2 \twoheadrightarrow_k E_1 \)</h3>
+<p>Let \( n \in E_2 \), so \( n = 2k_1 \land n \equiv 2 \ (\text{mod} \ 3) \); iterating \( \twoheadrightarrow \) yields \( m \in E_1 \), thus \( E_2 \twoheadrightarrow_k E_1 \), \( \square \).</p>
 
-<p>Since in the Collatz conjecture we eventually reach \( f^K(x) = 1 \), we can work our way backwards using the \( \twoheadrightarrow \) operation. Consequently, any number that is a power of 2 will ultimately lead to 1 because of the effect of the \( \twoheadrightarrow \) operation.</p>
-<p>Because of the previous statement, we can create \( S_1 \), which is for even powers of 2 (\( 2^{2k_3} \)), and is a strict subset of \( E_1 \subset A_1 \). Similarly, we define \( S_2 \), which has the same relationship but with odd powers of 2, and the union of \( S_1 \cup S_2 \) produces \( S \), the 'end set.' Therefore, two sequences of actions (denoted by \( \Rrightarrow_k \)) can be made:</p>
+<h3>Proving \( A_2 \Rrightarrow_k A_1 \) or specifically \( A_2 \Rrightarrow_k E_1 \)</h3>
+<p>From \( E_2 \twoheadrightarrow_k E_1 \) and \( O_2 \rightarrowtail_1 E_1 \), starting from \( n \in A_2 \), we reach \( m \in E_1 \) via \( \twoheadrightarrow_k \) or \( \rightarrowtail_1 \), thus \( A_2 \Rrightarrow_k E_1 \), \( \square \).</p>
+
+<h3>Proving Everything Ends in \( E_1 \)</h3>
+<p>From the above proofs, all paths from \( A_0 \), \( A_1 \), and \( A_2 \) eventually lead to \( E_1 \). Specifically:
+    <ul>
+        <li>\( A_0 \Rrightarrow_k E_1 \),</li>
+        <li>\( A_1 \) (via \( O_1 \rightarrowtail_1 E_1 \)),</li>
+        <li>and \( A_2 \Rrightarrow_k E_1 \).</li>
+    </ul>
+    Thus, all elements in \( \mathbb{Z}^+ \) eventually map to \( E_1 \), \( \square \).
+</p>
+<div style="display: flex; align-items: flex-start; gap: 20px;">
+  <table border="1">
+      <tr>
+          <th>Power of 2</th>
+          <th>Number</th>
+          <th>Expression</th>
+      </tr>
+      <tr>
+          <td>\( 2^4 \)</td>
+          <td>16</td>
+          <td>\( 5 \times 3 + 1 \)</td>
+      </tr>
+      <tr>
+          <td>\( 2^5 \)</td>
+          <td>32</td>
+          <td>\( 3 \times 10 + 2 \)</td>
+      </tr>
+      <tr>
+          <td>\( 2^6 \)</td>
+          <td>64</td>
+          <td>\( 3 \times 21 + 1 \)</td>
+      </tr>
+      <tr>
+          <td>\( 2^7 \)</td>
+          <td>128</td>
+          <td>\( 3 \times 42 + 2 \)</td>
+      </tr>
+      <tr>
+          <td>\( 2^8 \)</td>
+          <td>256</td>
+          <td>\( 3 \times 85 + 1 \)</td>
+      </tr>
+  </table>
+
+  <div>
+      <p>Generalized rule for powers of 2 in terms of \( k_3 \):</p>
+      <ul>
+          <li>For even powers of 2 (\( 2^{2k_3} \)), the expression is of the form \( 3k_2 + 1 \in A_1 \).</li>
+          <li>For odd powers of 2 (\( 2^{2k_3+1} \)), the expression is of the form \( 3k_2 + 2 \in A_2 \).</li>
+      </ul>
+  </div>
+</div>
+
+<p>
+  In the Collatz conjecture, since \( f^K(x) = 1 \) is eventually reached, we can work backwards using the \( \twoheadrightarrow \) operation. Powers of 2 lead to 1 due to \( \twoheadrightarrow \).
+</p>
+
+<p>
+  Define \( S_0 \) (even powers of 2, \( 2^{2k_3} \)) as a strict subset of \( E_0 \subset A_0 \), and \( S_1 \) (odd powers of 2) similarly. Their union \( S = S_0 \cup S_1 \) forms the 'end set.' Two sequences emerge:
+</p>
 
 <p>
   \[
-  \left\{
-    \begin{array}{l}
-      E \twoheadrightarrow_{k_1} \Rrightarrow_{k_2} S \twoheadrightarrow_{k_m} 1 \\
-    \end{array}
-  \right.
-  \quad \text{(first sequence starting with \( x \in E \))}
+  E \twoheadrightarrow_{k_1} \Rrightarrow_{k_2} S \twoheadrightarrow_{k_m} 1 \quad \text{(starting with \( x \in E \))}
   \]
-
   \[
-  \left\{
-    \begin{array}{l}
-      O \rightarrowtail_{k_1} \Rrightarrow_{k_2} S \twoheadrightarrow_{k_m} 1 \\
-    \end{array}
-  \right.
-  \quad \text{(second sequence starting with \( O \))}
+  O \rightarrowtail_{k_1} \Rrightarrow_{k_2} S \twoheadrightarrow_{k_m} 1 \quad \text{(starting with \( x \in O \))}
   \]
 </p>
 
-<p>The \( \twoheadrightarrow \) action is stackable, meaning that an even number divided by 2 can lead to another even number. Specifically:</p>
+<p>
+  The \( \twoheadrightarrow \) operation is stackable: dividing an even number by 2 can yield another even number. Specifically:
+</p>
 
 <p>
-  \[
-  \twoheadrightarrow_2 \twoheadrightarrow_2 = \twoheadrightarrow_4
-  \]
   \[
   \twoheadrightarrow_m \twoheadrightarrow_n = \twoheadrightarrow_{m+n}
   \]
 </p>
 
-<p>It’s important to note that \( \twoheadrightarrow \) followed by \( \twoheadrightarrow \) is not multiplication; instead, it is equivalent to function composition, meaning:</p>
+<p>
+  Note that \( \twoheadrightarrow \) followed by \( \twoheadrightarrow \) represents function composition, not multiplication:
+</p>
 
 <p>
   \[
@@ -204,33 +200,32 @@ n \xrightarrow{\twoheadrightarrow} \frac{n}{2} \quad \text{if } n \text{ is even
   \]
 </p>
 
-<p>Another thing to note is that since we defined \( \twoheadrightarrow_k \), it means that this action applies \( k \) times. However, it does not specify whether the remaining value is even or odd. On the other hand, \( \twoheadrightarrow^{(O)}_k \) states that the operation was applied \( k \) times, where the final result is odd. This can be expressed as:</p>
-
 <p>
-  \[
-  \twoheadrightarrow_k \quad \text{(applies \( k \) times without specifying even or odd)}
-  \]
+  The \( \twoheadrightarrow_k \) operation applies \( k \) times without specifying whether the result is even or odd. In contrast, \( \twoheadrightarrow^{(O)}_k \) applies \( k \) times, with the final result being odd. Formally:
 </p>
 
 <p>
   \[
-  \twoheadrightarrow^{(O)}_k \quad \text{(applies \( k \) times with the final result being odd)}
+  \twoheadrightarrow_k \quad \text{(\( k \) applications, result unspecified)}
+  \]
+  \[
+  \twoheadrightarrow^{(O)}_k \quad \text{(\( k \) applications, result odd)}
   \]
 </p>
 
-<p>For the \( \rightarrowtail \) operation, which applies to odd numbers, we have:</p>
-
 <p>
-  Let \( x = 2k_1 + 1 \), where \( k_1 \) is an integer. Applying \( \rightarrowtail(x) = 3x + 1 \) gives:</p>
+  For the \( \rightarrowtail \) operation, which applies to odd numbers, let \( x = 2k_1 + 1 \). Applying \( \rightarrowtail(x) = 3x + 1 \) yields:
+</p>
 
 <p>
   \[
-  \rightarrowtail(x) = 3(2k_1 + 1) + 1 = 6k_1 + 4 = 2(3k_1 + 2).
+  \rightarrowtail(x) = 3(2k_1 + 1) + 1 = 6k_1 + 4 = 2(3k_1 + 2),
   \]
 </p>
 
-<p>Since \( 2(3k_1 + 2) \) is clearly even, the result of \( \rightarrowtail \) is always even. Therefore, the operation cannot be stacked because it is only defined for odd numbers.</p>
-
+<p>
+  which is always even. Since \( \rightarrowtail \) is only defined for odd numbers, it cannot be stacked.
+</p>
 <p>
   \[
   \left\{
