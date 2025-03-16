@@ -155,11 +155,15 @@ n \xrightarrow{\twoheadrightarrow} \frac{n}{2} \quad \text{if } n \text{ is even
   </table>
 
   <div>
-      <p>Generalized rule for powers of 2 in terms of \( k_3 \):</p>
-      <ul>
-          <li>For even powers of 2 (\( 2^{2k_3} \)), the expression is of the form \( 3k_2 + 1 \in A_1 \).</li>
-          <li>For odd powers of 2 (\( 2^{2k_3+1} \)), the expression is of the form \( 3k_2 + 2 \in A_2 \).</li>
-      </ul>
+    <p>Generalized rule for powers of 2 in terms of \( k_3 \):</p>
+    <p>
+      \[
+      S_0 = \{ x \in \mathbb{Z}^+ \mid x = 2^{2k_3}, \, k_3 \in \mathbb{Z}^+ \} \subset E_1 \subset A_1,
+      \]
+      \[
+      S_1 = \{ x \in \mathbb{Z}^+ \mid x = 2^{2k_3 + 1}, \, k_3 \in \mathbb{Z}^+ \} \subset E_2 \subset A_2.
+      \]
+    </p>
   </div>
 </div>
 
@@ -168,9 +172,8 @@ n \xrightarrow{\twoheadrightarrow} \frac{n}{2} \quad \text{if } n \text{ is even
 </p>
 
 <p>
-  Define \( S_0 \) (even powers of 2, \( 2^{2k_3} \)) as a strict subset of \( E_0 \subset A_0 \), and \( S_1 \) (odd powers of 2) similarly. Their union \( S = S_0 \cup S_1 \) forms the 'end set.' Two sequences emerge:
+  \( S = S_0 \cup S_1 \) forms the 'end set.' Two sequences emerge:
 </p>
-
 <p>
   \[
   E \twoheadrightarrow_{k_1} \Rrightarrow_{k_2} S \twoheadrightarrow_{k_m} 1 \quad \text{(starting with \( x \in E \))}
@@ -191,16 +194,6 @@ n \xrightarrow{\twoheadrightarrow} \frac{n}{2} \quad \text{if } n \text{ is even
 </p>
 
 <p>
-  Note that \( \twoheadrightarrow \) followed by \( \twoheadrightarrow \) represents function composition, not multiplication:
-</p>
-
-<p>
-  \[
-  f \circ g(x) = f(g(x))
-  \]
-</p>
-
-<p>
   The \( \twoheadrightarrow_k \) operation applies \( k \) times without specifying whether the result is even or odd. In contrast, \( \twoheadrightarrow^{(O)}_k \) applies \( k \) times, with the final result being odd. Formally:
 </p>
 
@@ -214,185 +207,135 @@ n \xrightarrow{\twoheadrightarrow} \frac{n}{2} \quad \text{if } n \text{ is even
 </p>
 
 <p>
-  For the \( \rightarrowtail \) operation, which applies to odd numbers, let \( x = 2k_1 + 1 \). Applying \( \rightarrowtail(x) = 3x + 1 \) yields:
-</p>
-
-<p>
+  For the \( \rightarrowtail \) operation (defined for odd numbers), let \( x = 2k_1 + 1 \). Applying \( \rightarrowtail(x) = 3x + 1 \) yields:
   \[
   \rightarrowtail(x) = 3(2k_1 + 1) + 1 = 6k_1 + 4 = 2(3k_1 + 2),
   \]
-</p>
-
-<p>
   which is always even. Since \( \rightarrowtail \) is only defined for odd numbers, it cannot be stacked.
 </p>
+
 <p>
   \[
-  \left\{
-    \begin{array}{l}
-      E \twoheadrightarrow_{k_1} \Rrightarrow_{k_2} S \twoheadrightarrow_{k_m} 1 \\  
-    \end{array}
-  \right.
-  \quad \text{(first sequence starting with \( x \in E \))}
-  \]
-
-  \[
-  \left\{
-    \begin{array}{l}
-      O \rightarrowtail_{k_1} E' \twoheadrightarrow_{k_2} \Rrightarrow_{k_3} S \twoheadrightarrow_{k_m} 1 \\  
-    \end{array}
-  \right.
-  \quad \text{(second sequence expanded, where \( E' \) is the even result of \( \rightarrowtail \))}
+  \begin{cases}
+    E \twoheadrightarrow_{k_1} \Rrightarrow_{k_2} S \twoheadrightarrow_{k_m} 1 & \text{(starting with \( x \in E \))} \\
+    O \rightarrowtail_{k_1} E' \twoheadrightarrow_{k_2} \Rrightarrow_{k_3} S \twoheadrightarrow_{k_m} 1 & \text{(expanded, where \( E' \) is the even result of \( \rightarrowtail \))}
+  \end{cases}
   \]
 </p>
 
 <p>
-Since the first case is a subsequence of the second case, we can generalize the analysis by focusing on the second case. Both sequences share the same structure after reaching \( E' \), meaning we only need to study the general form:
-</p>
-
-\[
-O \rightarrowtail_{k_1} E' \twoheadrightarrow_{k_2} \Rrightarrow_{k_3} S \twoheadrightarrow_{k_m} 1
-\]
-
-<p>
-By doing so, we encompass all cases while maintaining the same transformation rules.
-</p>
-
-<p>
-  Now, let us refine \( \twoheadrightarrow_k \) by introducing \( \twoheadrightarrow_k^{(O)} \), which explicitly denotes that the final outcome is odd. This adjustment makes the transition structure more explicit and systematic:
-  </p>
-  
+  The first case is a subsequence of the second, so we focus on the second case. Both sequences share the same structure after \( E' \), allowing us to study the general form:
   \[
-  O \rightarrowtail_{k_1} E' \twoheadrightarrow_{k_2}^{(O)} \Rrightarrow_{k_3} S \twoheadrightarrow_{k_m}^{(O)} 1
-\]
+  O \rightarrowtail_{k_1} E' \twoheadrightarrow_{k_2} \Rrightarrow_{k_3} S \twoheadrightarrow_{k_m} 1,
+  \]
+</p>
 
-\[
-  O \rightarrowtail_{k_1} E' \twoheadrightarrow_{k_2}^{(O)} O' \Rrightarrow_{k_3} S \twoheadrightarrow_{k_m}^{(O)} 1
-\]
+<p>
+  We refine \( \twoheadrightarrow_k \) by introducing \( \twoheadrightarrow_k^{(O)} \), explicitly indicating an odd final outcome. This adjustment enhances the clarity and systematic structure of transitions.
+</p>
 
 \[
   O \rightarrowtail_{k_1} E' \twoheadrightarrow_{k_2}^{(O)} O' \Rrightarrow_{k_3} S^{(m-1)} \twoheadrightarrow_{k_m}^{(O)} 1
 \]
 
-<p>  
-Since \( O' \Rrightarrow_{k_3} S^{(m-1)} \) maps odd numbers to even numbers, the \( \rightarrowtail \) operation alone achieves this. However, another valid transformation sequence is:  
-</p>  
 
-\[
-\rightarrowtail \twoheadrightarrow^{(O)} \rightarrowtail \twoheadrightarrow^{(O)} \rightarrowtail \dots \rightarrowtail (\twoheadrightarrow \rightarrowtail )_L
-\]  
 
-<p>  
-This notation captures alternating applications of \( \rightarrowtail \) and \( \twoheadrightarrow^{(O)} \), maintaining the transition from odd to even until reaching \( S^{(m-1)} \).  
+<p>
+  Since \( O' \Rrightarrow_{k_3} S^{(m-1)} \) maps odd to even, \( \rightarrowtail \) alone suffices. However, an alternate sequence is:
 </p>
 
-<p>Note: \( L \) can be \( 0 \).</p>
-
 \[
-O \rightarrowtail_{k_1} E' \twoheadrightarrow_{k_2}^{(O)} O' \rightarrowtail_{k_3} (\twoheadrightarrow \rightarrowtail )_L S^{(3 + 2L)} \twoheadrightarrow_{k_m}^{(O)} 1
+\rightarrowtail \twoheadrightarrow^{(O)} \rightarrowtail \twoheadrightarrow^{(O)} \rightarrowtail \dots \rightarrowtail (\twoheadrightarrow \rightarrowtail)_L
 \]
 
-<p>We can further reduce the sequence \( E' \twoheadrightarrow_{k_2}^{(O)} O' \rightarrowtail_{k_3} \) by incorporating it into the \( L \)-term. For example, considering that: </p>
-
 <p>
-  \[
-  21 = 3 \times 7
-  \]
-  and
-  \[
-  21 = 2k + 1,
-  \]
-  we conclude that it falls under \( O_0 \). Furthermore, since:
-</p>
-
-<p>
-  \[
-  21 \times 3 + 1 = 64 \quad \text{and} \quad 64 = 2^6,
-  \]
-  we see that only the combination of \( \rightarrowtail_{} \twoheadrightarrow_{k_2}^{(O)} \) was necessary to reach \( 1 \). Thus, we can lump the \( k_2 \) and \( k_3 \) actions into the set \( S \), resulting in:
+  This captures alternating \( \rightarrowtail \) and \( \twoheadrightarrow^{(O)} \), transitioning odd to even until \( S^{(m-1)} \). (Note: \( L \geq 0 \).)
 </p>
 
 \[
-O \rightarrowtail_{k_1} E' (\twoheadrightarrow \rightarrowtail )_L S^{(2L + 1)} \twoheadrightarrow_{k_m}^{(O)} 1
+O \rightarrowtail_{k_1} E' \twoheadrightarrow_{k_2}^{(O)} O' \rightarrowtail_{k_3} (\twoheadrightarrow \rightarrowtail)_L S^{(3 + 2L)} \twoheadrightarrow_{k_m}^{(O)} 1
+\]
+
+<p>
+  The sequence \( E' \twoheadrightarrow_{k_2}^{(O)} O' \rightarrowtail_{k_3} \) can be incorporated into \( L \). For example:
+</p>
+
+<p>
+  \[
+  21 = 3 \times 7 = 2k + 1 \implies 21 \in O_0.
+  \]
+  Since \( 21 \times 3 + 1 = 64 = 2^6 \), only \( \rightarrowtail \twoheadrightarrow_{k_2}^{(O)} \) is needed to reach \( 1 \). Thus:
+</p>
+
+\[
+O \rightarrowtail_{k_1} E' (\twoheadrightarrow \rightarrowtail)_L S^{(2L + 1)} \twoheadrightarrow_{k_m}^{(O)} 1
 \]
 
 \[
-(\rightarrowtail)_O (\twoheadrightarrow^{(O)} \rightarrowtail )_{L + O} \twoheadrightarrow^{(O)}_{L + O + N} 1
+(\rightarrowtail)_O (\twoheadrightarrow^{(O)} \rightarrowtail)_{L + O} \twoheadrightarrow^{(O)}_{L + O + N} 1
 \]
 
-<p>Remember that for \( (\twoheadrightarrow^{(O)} \rightarrowtail)_{L + O} \), each \( \twoheadrightarrow^{(O)} \) is associated with \( n_1, n_2, \dots, n_l \) because these represent the steps required to become odd. Therefore, \( L \) should be the sum of the following:</p>
-
 <p>
-  \[
-  L = \sum_{i=1}^{l} (n_i + 1)
-  \]
-  where each \( (n_i + 1) \) represents the number of steps needed to transition from odd to even in the sequence, followed by a \( \rightarrowtail \) step.
+  This reduces the sequence while preserving transformation rules.
 </p>
 
 <p>
-  Thus, we define \( K \) as follows:
+  For \( (\twoheadrightarrow^{(O)} \rightarrowtail)_{L + O} \), each \( \twoheadrightarrow^{(O)} \) corresponds to steps \( n_1, n_2, \dots, n_l \) to become odd. Thus:
   \[
-  K = L + O + N
+  L = \sum_{i=1}^{l} (n_i + 1),
+  \]
+  where \( (n_i + 1) \) represents odd-to-even transitions followed by \( \rightarrowtail \).
+</p>
+
+<p>
+  \[
+  K = L + O + N,
   \]
   where:
   <ul>
-    <li> \( L \) is the sum of the steps required to transition from odd to even,</li>
-    <li> \( O \) is 1 if the process started with an odd number and 0 otherwise,</li>
-    <li> \( N \) represents the number of steps taken to reach \( 2^N \) (the power of 2 stage).</li>
+    <li> \( L \): odd-to-even steps,</li>
+    <li> \( O \): 1 (odd start) or 0,</li>
+    <li> \( N \): steps to \( 2^N \).</li>
   </ul>
 </p>
 
 <p>
-  Since we previously established that \( A_0 \Rrightarrow_k A_1 \), we now only need to work with the four sets \( E_1 \), \( E_2 \), \( O_1 \), and \( O_2 \) (or equivalently \( A_1 \) and \( A_2 \)) to cover all \( \mathbb{Z}^+ \).
-</p>
-
-<p>
-  Moreover, because \( 3(O_2) + 1 \) falls in \( A_1 \), and since \( O_2 \in \mathbb{Z}^+ \), it specifically falls within \( E_1 \) due to the \( \rightarrowtail \) operation. Thus, we further reduce our sets.
-</p>
-
-<p>
-  To show that \( O_1 \) falls inside \( E_1 \) due to the \( \rightarrowtail \) operation, consider that for any odd number \( x \in O_1 \), the operation \( \rightarrowtail \) is defined as \( 3x + 1 \). This operation always results in an even number, which must therefore belong to \( E_1 \) since \( E_1 \) contains even numbers. Hence, for any \( x \in O_1 \), \( \rightarrowtail(x) \in E_1 \), proving that \( O_1 \) is mapped into \( E_1 \) under the \( \rightarrowtail \) operation.
-</p>
-
-\[
-(\twoheadrightarrow^{(O)} \rightarrowtail )_{L} \twoheadrightarrow^{(O)}_{L + N} 1
-\]
-
-<p>
-  Now, we are primarily concerned with the even sets \( E_1 \) and \( E_2 \). Since \( S \) represents the end set and has already been solved, we now focus on the elements within \( E_1 \) and \( E_2 \) that contain one additional prime factor beyond 2.
-</p>
-
-<p>
-  Consider \( E_2 \). If an element is already in the \( S \) set, we don't need to worry about it, as it has already been solved. Otherwise, there remains only one path to follow whenever the sequence \( (\twoheadrightarrow^{(O)} \rightarrowtail )_L \) exists. Since the last operation in this sequence is \( \rightarrowtail \), it is guaranteed to result in an element from \( A_1 \), and since it is even result, it falls under \( E_1 \). This allows us to reduce the problem to just the subset of \( E_1 \).
-</p>
-
-<p>
-  We can now represent the sequence as:
+  Since all sequences eventually fall into \( E_1 \), we can reduce the structure by removing the odd part, simplifying it to:
   \[
-  \left( \twoheadrightarrow^{(O)} \rightarrowtail \right)_{L} \twoheadrightarrow^{(O)}_{L + N} 1
-  \]
-  The use of brackets indicates that the sequence is guaranteed to occur at least once, as the alternative is that the element already belongs to the end set \( S \).
-</p>
-
-<p>
-  Using the fact that the sequence is a result of \( \rightarrowtail \) in the 
-  \[
-    \left( \twoheadrightarrow^{(O)} \rightarrowtail \right)_{L},
-  \]
-  we can conclude that the result is in \( A_1 \). 
-  Moreover, based on the previous statement:
-</p>
-<ul>
-  <li>For even powers of 2 (\( 2^{2k_3} \)), the expression is of the form \( 3k_2 + 1 \in A_1 \).</li>
-</ul>
-<p>
-  Thus, we have 
-  \[
-    \left( \twoheadrightarrow^{(O)} \rightarrowtail \right)_{L} = 2^{(N = 2n)} = 4^n.
+  (\twoheadrightarrow^{(O)} \rightarrowtail)_L \twoheadrightarrow^{(O)}_{L + N} 1
   \]
 </p>
 
-<p> For the following operation, it is closed, meaning that it sends \( E_1 \) into \( E_1 \) indefinitely. </p>
+
+
+<p>
+  We focus on the even sets \( E_1 \) and \( E_2 \). Since \( S \) (the end set) is already solved, we examine elements in \( E_1 \) and \( E_2 \) with one additional prime factor beyond 2.
+</p>
+
+<p>
+  For \( E_2 \), if an element is in \( S \), it is already solved. Otherwise, the sequence \( (\twoheadrightarrow^{(O)} \rightarrowtail)_L \) must occur, ending with \( \rightarrowtail \), which guarantees an even result in \( A_1 \subset E_1 \). Thus, the problem reduces to \( E_1 \).
+</p>
+
+<p>
+  The sequence can be represented as:
+  \[
+  \left( \twoheadrightarrow^{(O)} \rightarrowtail \right)_L \twoheadrightarrow^{(O)}_{L + N} 1,
+  \]
+  where the bracketed sequence is guaranteed to occur at least once (unless the element is already in \( S \)).
+</p>
+
+<p>
+  Since \( \rightarrowtail \) in \( \left( \twoheadrightarrow^{(O)} \rightarrowtail \right)_L \) results in \( A_1 \), and for even powers of 2 (\( 2^{2k_3} \)), the form is \( 3k_2 + 1 \in A_1 \), we have:
+  \[
+  \left( \twoheadrightarrow^{(O)} \rightarrowtail \right)_L = 2^{2n} = 4^n.
+  \]
+</p>
+
+<p>
+  This operation is closed, sending \( E_1 \) into \( E_1 \) indefinitely.
+</p>
+
+
 
 <p>We partition \( E_1 \) into three subsets satisfying:</p>
 <ul>
