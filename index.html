@@ -10,11 +10,8 @@
 <body>
     <h2>Purpose</h2>
     <p>
-        I'm doing this mostly out of boredom. The Collatz Conjecture is an interesting problem, and while some of the equations I write might be incorrect, I think it's fun to explore it. There’s no real goal here—just a curiosity-driven exercise.
-        Another reason I'm writing this is to have a digital backup. I usually jot down notes in a physical notebook, but in case I lose it, I want to transfer my work into LaTeX and publish it using GitHub Pages. This way, I can always refer back to my notes without worrying about losing them.
-        To keep things simple, I’m just using a single <code>index.html</code> file with MathJax for rendering LaTeX. No fancy frameworks, no complex setups—just a basic HTML page that serves my purpose.
-        If you're reading this, you're probably as bored as I am. - Jose Alvarez &nbsp;&nbsp;&nbsp;&nbsp; (Last Updated: 03/13/2025)
-    </p>
+      I’m exploring the Collatz Conjecture out of curiosity and boredom. Some equations might be incorrect, but it’s a fun exercise. I’m also creating a digital backup of my notes, usually written in a physical notebook, by transferring them into LaTeX and publishing via GitHub Pages. This ensures I don’t lose my work. For simplicity, I’m using a single <code>index.html</code> file with MathJax—no frameworks, just basic HTML. If you’re reading this, you’re probably as bored as I am. — Jose Alvarez &nbsp;&nbsp;&nbsp;&nbsp; (Last Updated: 03/16/2025)
+  </p>
 
     <h2>Collatz Conjecture</h2>
 
@@ -34,31 +31,20 @@ f(n) =
 
 <h2>Partitioning \( \mathbb{Z}^+ \)</h2>
 <p>
-  Let \( i \in \{ 0, 1, 2 \} \). This is the beginning of our attempt to solve the conjecture by partitioning \( \mathbb{Z}^+ \) into three disjoint sets:
+  Let \( i \in \{ 0, 1, 2 \} \).
 </p>
 
 \[
-\mathbb{Z}^+ = A_0 \sqcup A_1 \sqcup A_2
-\]
-
-\[
+\mathbb{Z}^+ = A_0 \sqcup A_1 \sqcup A_2 \quad 
 A_i = \{ x \in \mathbb{Z}^+ \mid x \equiv i \, (\text{mod} \, 3) \}
 \]
-
-<p>
-  Introducing \( E, O \), we define:
-</p>
 
 \[
 E_i = \{ x \in A_i \mid x \text{ is even} \}, \quad O_i = \{ x \in A_i \mid x \text{ is odd} \}
 \]
 
 \[
-A_i = E_i \cup O_i, \quad E_i \cap O_i = \emptyset
-\]
-
-\[
-\left( E_0 \cup E_1 \cup E_2 \right) \cup \left( O_0 \cup O_1 \cup O_2 \right) = \mathbb{Z}^+
+E = E_0 \sqcup E_1 \sqcup E_2, \quad O = O_0 \sqcup O_1 \sqcup O_2 \quad E \sqcup O = \mathbb{Z}^+
 \]
 
 <div style="text-align: center;">
@@ -100,8 +86,6 @@ A_i = E_i \cup O_i, \quad E_i \cap O_i = \emptyset
     </tr>
   </table>
 </div>
-
-<p>Let us define the following operations for any \( n \in \mathbb{Z}^+ \):</p>
 
 <p>
 \[
