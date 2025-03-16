@@ -46,7 +46,7 @@ A_i = \{ x \in \mathbb{Z}^+ \mid x \equiv i \, (\text{mod} \, 3) \}
 \]
 
 <p>
-  Introducing \( E, O \) : \( A_i = E_i \cup O_i \) with \( E_i \cap O_i = \varnothing \), we define:
+  Introducing \( E, O \), we define:
 </p>
 
 \[
@@ -101,53 +101,25 @@ A_i = E_i \cup O_i, \quad E_i \cap O_i = \emptyset
   </table>
 </div>
 
+<p>Let us define the following operations for any \( n \in \mathbb{Z}^+ \):</p>
+
+<p>
+\[
+n \xrightarrow{\rightarrowtail} 3n + 1 \quad \text{if } n \text{ is odd}
+\]
+\[
+n \xrightarrow{\twoheadrightarrow} \frac{n}{2} \quad \text{if } n \text{ is even}
+\]
+</p>
 
 <h2>Proving \( E_0 \twoheadrightarrow_k O_0 \)</h2>
-<p>Let \( n \in E_0 \subseteq A_0 \), so \( n \) is even. By the properties of \( E_0 \), we know that \( n = 2k_1 \) and \( n = 3k_2 \) for some \( k_1, k_2 \in \mathbb{Z}^+ \). By the definition of the operation \( \twoheadrightarrow \), we have:</p>
+<p>Let \( n \in E_0 \), so \( n = 2k_1 \land n = 3k_2 \); iterating \( \twoheadrightarrow \) yields odd \( m = 3k' \in O_0 \), thus \( E_0 \twoheadrightarrow_k O_0 \), \( \square \).</p>
 
-<p>
-\[
-n \twoheadrightarrow \frac{n}{2} \quad \text{(since \( n \) is even)}
-\]
-</p>
-
-<p>We continue applying \( \twoheadrightarrow_k \) iteratively to reduce \( n \) within \( A_0 \), preserving the form \( n = 2k_1 \), until we reach an odd value \( m \). For \( m \), the property \( m = 2k_1 + 1 \) holds, and we know that \( m = 3k_2 \) for some \( k_2 \in \mathbb{Z}^+ \), which satisfies the properties of \( O_0 \). Thus, \( n \Rrightarrow_k m \) for some \( k \) such that \( m \in O_0 \). Therefore, \( E_0 \Rrightarrow_k O_0 \) within \( A_0 \), completing the proof.</p>
-
-<h2>Proving \( O_0 \rightarrowtail_1 E_1 \)</h2>
-<p>Let \( n \in O_0 \subseteq A_0 \), so \( n \) is odd. By the properties of \( O_0 \), we know that \( n = 2k_1 + 1 \) and \( n = 3k_2 \) for some \( k_1, k_2 \in \mathbb{Z}^+ \). By the definition of the operation \( \rightarrowtail \), we have:</p>
-
-<p>
-\[
-n \rightarrowtail 3n + 1 \quad \text{(since \( n \) is odd)}
-\]
-</p>
-
-<p>Applying \( \rightarrowtail \) to \( n \) once, we get:</p>
-
-<p>
-\[
-n \rightarrowtail 3n + 1 = 3(2k_1 + 1) + 1 = 6k_1 + 4
-\]
-</p>
-
-<p>We observe that \( 6k_1 + 4 \) is even, and thus belongs to \( E_1 \), which is the set of even numbers of the form \( x = 2k_1 \land x = 3k_2 + 1 \). Therefore, \( n \rightarrowtail_1 E_1 \) and we conclude that \( O_0 \rightarrowtail_1 E_1 \), completing the proof.</p>
+<h2>Proving \( O \rightarrowtail_1 E_1 \)</h2>
+<p>Let \( n \in O \), so \( n = 2k_1 + 1 \); applying \( \rightarrowtail \) gives \( 3n + 1 = 6k_1 + 4 \in E_1 \), thus \( O \rightarrowtail_1 E_1 \), \( \square \).</p>
 
 <h2>Proving \( A_0 \Rrightarrow_k A_1 \) or specifically \( A_0 \Rrightarrow_k E_1 \)</h2>
-<p>From the previous results, we have shown the following:</p>
-<ul>
-  <li> \( E_0 \twoheadrightarrow_k O_0 \), meaning that starting from an element in \( E_0 \), we can reach an element in \( O_0 \) through a series of operations.</li>
-  <li> \( O_0 \rightarrowtail_1 E_1 \), meaning that starting from an element in \( O_0 \), applying the \( \rightarrowtail \) operation once leads to an element in \( E_1 \).</li>
-</ul>
-
-<p>Therefore, combining these two results, we can conclude that an element from \( A_0 \) can be transformed into an element of \( E_1 \) as follows:</p>
-
-<ul>
-  <li> Start with \( n \in E_0 \subseteq A_0 \), apply the \( \twoheadrightarrow_k \) operation, and we reach an element \( m \in O_0 \).</li>
-  <li> From \( m \in O_0 \), applying the \( \rightarrowtail_1 \) operation leads to an element in \( E_1 \).</li>
-</ul>
-
-<p>Thus, \( A_0 \rightarrow E_1 \) is demonstrated, completing the proof.</p>
-
+<p>From \( E_0 \twoheadrightarrow_k O_0 \) and \( O_0 \rightarrowtail_1 E_1 \), starting from \( n \in E_0 \), we reach \( m \in O_0 \) via \( \twoheadrightarrow_k \), then \( m \rightarrowtail_1 E_1 \), thus \( A_0 \Rrightarrow_k E_1 \), \( \square \).</p>
 <h3>Power of 2 Table</h3>
 <table border="1">
     <tr>
