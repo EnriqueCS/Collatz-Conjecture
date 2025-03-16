@@ -18,9 +18,11 @@
 
     <h2>Collatz Conjecture</h2>
 
-<p>
-    For all \( n \in \mathbb{Z}^+ \), \( \exists K \in \mathbb{Z}^+ \) such that \( f^K(n) = 1 \). Where:
-</p>
+  <p>
+      \( \forall n \in \mathbb{Z}^+, \exists K \in \mathbb{Z}^+ : f^K(n) = 1 \), where:
+  </p>
+  
+  
 
 \[
 f(n) =
@@ -44,7 +46,7 @@ A_i = \{ x \in \mathbb{Z}^+ \mid x \equiv i \, (\text{mod} \, 3) \}
 \]
 
 <p>
-  Introducing \( E, O \) such that \( A_i = E_i \cup O_i \) with \( E_i \cap O_i = \emptyset \), we define:
+  Introducing \( E, O \) : \( A_i = E_i \cup O_i \) with \( E_i \cap O_i = \varnothing \), we define:
 </p>
 
 \[
@@ -99,25 +101,6 @@ A_i = E_i \cup O_i, \quad E_i \cap O_i = \emptyset
   </table>
 </div>
 
-<h2>Defining 'Actions'</h2>
-<p>For any \( n \in \mathbb{Z}^+ \), define the following operations:</p>
-
-<p>
-\[
-n \xrightarrow{\rightarrowtail} 3n + 1 \quad \text{if } n \text{ is odd}, \quad n \xrightarrow{\twoheadrightarrow} \frac{n}{2} \quad \text{if } n \text{ is even}
-\]
-</p>
-
-<p>Let \( \Rrightarrow_K \) represent the action applied \( K \) times, where \( K \in \mathbb{Z}^+ \). It can be either \( \rightarrowtail \) or \( \twoheadrightarrow \), depending on whether \( n \) is odd or even:</p>
-
-\[
-\Rrightarrow_K(n) = \begin{cases} 
-3n + 1 & \text{if } n \text{ is odd} \\
-\frac{n}{2} & \text{if } n \text{ is even}
-\end{cases}
-\]
-
-<p>To prove the existence of a positive integer \( K \) such that \( f^K(n) = 1 \), we must show a "path" from \( n \) to 1, formed by successive applications of \( \Rrightarrow \) within the six sets partitioning \( \mathbb{Z}^+ \).</p>
 
 <h2>Proving \( E_0 \twoheadrightarrow_k O_0 \)</h2>
 <p>Let \( n \in E_0 \subseteq A_0 \), so \( n \) is even. By the properties of \( E_0 \), we know that \( n = 2k_1 \) and \( n = 3k_2 \) for some \( k_1, k_2 \in \mathbb{Z}^+ \). By the definition of the operation \( \twoheadrightarrow \), we have:</p>
@@ -483,9 +466,19 @@ E_1^{(3)} = \{18J + 16\}
 <p>For \( n = 18J + x \) where \( x \in \{4, 10, 16\} \):</p>
 
 <ul>
-    <li>\( 18J + 4 \twoheadrightarrow^{(O)} 9J + 2 \twoheadrightarrow^{(O)} 9J + 1 \) (odd)</li>
-    <li>\( 18J + 10 \twoheadrightarrow^{(O)} 9J + 5 \) (odd)</li>
-    <li>\( 18J + 16 \twoheadrightarrow^{(O)} 9J + 8 \twoheadrightarrow^{(O)} 9J + 4 \twoheadrightarrow^{(O)} 9J + 2 \twoheadrightarrow^{(O)} 9J + 1 \) (odd)</li>
+  <li>\( 18J + 4 \twoheadrightarrow 9J + 2 \twoheadrightarrow^{(O)} 9J + 1 \) (odd)</li>
+  <li>\( 18J + 10 \twoheadrightarrow 9J + 5 \) (odd)</li>
+  <li>\( 18J + 16 \twoheadrightarrow 9J + 8 \twoheadrightarrow^{(O)} 9J + 4 \twoheadrightarrow^{(O)} 9J + 2 \twoheadrightarrow^{(O)} 9J + 1 \) (odd)</li>
+</ul>
+
+\[
+\left( \twoheadrightarrow \twoheadrightarrow^{(O)} \rightarrowtail \right)_{L}
+\]
+
+<ul>
+  <li>\( 9J + 2 \twoheadrightarrow^{(O)} 9J + 1 \) (odd)</li>
+  <li>\( 9J + 5 \) (odd)</li>
+  <li>\( 9J + 8 \twoheadrightarrow^{(O)} 9J + 4 \twoheadrightarrow^{(O)} 9J + 2 \twoheadrightarrow^{(O)} 9J + 1 \) (odd)</li>
 </ul>
 
 <p>Thus, under \( \twoheadrightarrow^{(O)} \), all elements eventually reach:</p>
@@ -493,7 +486,6 @@ E_1^{(3)} = \{18J + 16\}
 \[
 \{9J + 1, 9J + 5\}
 \]
-
 
 </body>
 </html>
