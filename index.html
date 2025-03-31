@@ -11,7 +11,7 @@
 <body>
     <h3>Purpose</h3>
     <p>
-      I’m exploring the Collatz Conjecture out of curiosity and boredom. Some equations might be incorrect, but it’s a fun exercise. I’m also creating a digital backup of my notes, usually written in a physical notebook, by transferring them into LaTeX and publishing via GitHub Pages. This ensures I don’t lose my work. For simplicity, I’m using a single <code>index.html</code> file with MathJax—no frameworks, just basic HTML. If you’re reading this, you’re probably as bored as I am. — Jose Alvarez &nbsp;&nbsp;&nbsp;&nbsp; (Last Updated: 03/16/2025)
+      I'm exploring the Collatz Conjecture out of curiosity and boredom. Some equations might be incorrect, but it's a fun exercise. I'm also creating a digital backup of my notes, usually written in a physical notebook, by transferring them into LaTeX and publishing via GitHub Pages. This ensures I don't lose my work. For simplicity, I'm using a single <code>index.html</code> file with MathJax—no frameworks, just basic HTML. If you're reading this, you're probably as bored as I am. — Jose Alvarez &nbsp;&nbsp;&nbsp;&nbsp; (Last Updated: 03/16/2025)
     </p>
 
     <p>
@@ -57,44 +57,22 @@ E_i = \{ x \in A_i \mid x \text{ is even} \}, \quad O_i = \{ x \in A_i \mid x \t
 E = E_0 \sqcup E_1 \sqcup E_2, \quad O = O_0 \sqcup O_1 \sqcup O_2 \quad E \sqcup O = \mathbb{Z}^+
 \]
 
-<div style="text-align: center;">
-  <table style="display: inline-block; margin-right: 20px;">
-    <tr>
-      <th>Set \( E_n \)</th>
-      <th>Properties of \( x \)</th>
-    </tr>
-    <tr>
-      <td> \( E_0 \) </td>
-      <td> \( x = 2k_1 \ \land \ x = 3k_2 \) </td>
-    </tr>
-    <tr>
-      <td> \( E_1 \) </td>
-      <td> \( x = 2k_1 \ \land \ x = 3k_2 + 1 \) </td>
-    </tr>
-    <tr>
-      <td> \( E_2 \) </td>
-      <td> \( x = 2k_1 \ \land \ x = 3k_2 + 2 \) </td>
-    </tr>
-  </table>
+<div style="text-align: center; margin: 20px;">
+  <div style="display: inline-block; margin-right: 40px; padding: 15px; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <div style="text-align: left;">
+      <p><strong>\( E_0 \)</strong>: \( x = 2k_1 \ \land \ x = 3k_2 \)</p>
+      <p><strong>\( E_1 \)</strong>: \( x = 2k_1 \ \land \ x = 3k_2 + 1 \)</p>
+      <p><strong>\( E_2 \)</strong>: \( x = 2k_1 \ \land \ x = 3k_2 + 2 \)</p>
+    </div>
+  </div>
 
-  <table style="display: inline-block;">
-    <tr>
-      <th>Set \( O_n \)</th>
-      <th>Properties of \( x \)</th>
-    </tr>
-    <tr>
-      <td> \( O_0 \) </td>
-      <td> \( x = 2k_1 + 1 \ \land \ x = 3k_2 \) </td>
-    </tr>
-    <tr>
-      <td> \( O_1 \) </td>
-      <td> \( x = 2k_1 + 1 \ \land \ x = 3k_2 + 1 \) </td>
-    </tr>
-    <tr>
-      <td> \( O_2 \) </td>
-      <td> \( x = 2k_1 + 1 \ \land \ x = 3k_2 + 2 \) </td>
-    </tr>
-  </table>
+  <div style="display: inline-block; padding: 15px; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <div style="text-align: left;">
+      <p><strong>\( O_0 \)</strong>: \( x = 2k_1 + 1 \ \land \ x = 3k_2 \)</p>
+      <p><strong>\( O_1 \)</strong>: \( x = 2k_1 + 1 \ \land \ x = 3k_2 + 1 \)</p>
+      <p><strong>\( O_2 \)</strong>: \( x = 2k_1 + 1 \ \land \ x = 3k_2 + 2 \)</p>
+    </div>
+  </div>
 </div>
 
 <p>
@@ -236,7 +214,7 @@ n \xrightarrow{\twoheadrightarrow} \frac{n}{2} \quad \text{if } n \text{ is even
 <p>
   The first case is a subsequence of the second, so we focus on the second case. Both sequences share the same structure after \( E' \), allowing us to study the general form:
   \[
-  O \rightarrowtail_{k_1} E' \twoheadrightarrow_{k_2} \Rrightarrow_{k_3} S \twoheadrightarrow_{k_m} 1,
+  O \rightarrowtail_{k_1} E' \twoheadrightarrow_{k_2}^{(O)} O' \Rrightarrow_{k_3} S^{(m-1)} \twoheadrightarrow_{k_m}^{(O)} 1
   \]
 </p>
 
